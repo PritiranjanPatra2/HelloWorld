@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import html2canvas from "html2canvas";
 import "./Certificate.css";
-import logo from "../../assets/hellow.png"; 
+import logo from "../../assets/Hellow.png"; 
 
 function Certificate() {
   const location = useLocation();
