@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Tutorial.css";
 import { data } from "../../data.js";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 function Tutorial() {
   const [selectedCategory, setSelectedCategory] = useState("HTML");
@@ -9,6 +9,7 @@ function Tutorial() {
   const [copySuccess, setCopySuccess] = useState(false);
 
   const topics = data[selectedCategory];
+  const navigate= useNavigate();
 
   const handleNext = () => {
     if (currentIndex < topics.length - 1) setCurrentIndex(currentIndex + 1);
@@ -98,13 +99,11 @@ function Tutorial() {
             >
               Next
             </button>
-            {selectedCategory!="React" && <a
-              href="/editor"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="tryYourself">Try Yourself</button>
-            </a>    }
+            {selectedCategory!="React" && 
+              <button className="tryYourself" onClick={()=>{
+                navigate('/editor')
+              }}>Try Yourself</button>
+                }
           </div>
         </div>
       </div>
